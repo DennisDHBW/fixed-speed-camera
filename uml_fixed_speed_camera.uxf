@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>414</x>
+      <y>333</y>
+      <w>135</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>Vehicle&lt;&lt;abstract&gt;&gt;
+--
++licensePlate : String
++owner : String
+--
++toString() : String
+
+inheritance</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>135</x>
+      <y>405</y>
+      <w>126</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Car
+--
++type : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>135</x>
+      <y>279</y>
+      <w>126</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Truck
+--
++cargo : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>486</x>
+      <y>513</y>
+      <w>252</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>SpeedCamera
+--
++id : int
++location : String
++speedLimit : int
++measurements : ArrayList&lt;Measurement&gt;
+--
++flash(Vehicle, double)
++showMeasurements()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>810</x>
+      <y>333</y>
+      <w>189</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>Measurement
+--
++timestamp : LocalDateTime
++speed : double
++vehicle : Vehicle
+--
++calculateFine() : double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>576</x>
+      <y>306</y>
+      <w>144</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>FineCatalog
+--
++limit : int
++fineAmount : double
+--
++calculateFine(double)
++calculateFine(double, Vehicle)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>522</x>
+      <y>135</y>
+      <w>135</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>Wallet
+--
++balance : double
++owner : String
+--
++debit(double)
++deposit(double)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>477</x>
+      <y>738</y>
+      <w>243</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>OwnerDatabase
+--
++ownerMap : HashMap&lt;String, String&gt;
+--
++findOwner(String) : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>855</x>
+      <y>702</y>
+      <w>198</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>Technician
+--
++name : String
++cameras : List&lt;SpeedCamera&gt;
+--
++maintainCamera()
++installCamera(SpeedCamera)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>855</x>
+      <y>540</y>
+      <w>189</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>MeasurementStorage
+--
++stack : Stack&lt;Measurement&gt;
+--
++saveMeasurement()
++deleteLastMeasurement()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>792</x>
+      <y>153</y>
+      <w>189</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>FineProcess
+--
++measurement : Measurement
++fineAmount : double
+--
++executeProcess()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>252</x>
+      <y>369</y>
+      <w>180</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+inheritance
+
+</panel_attributes>
+    <additional_attributes>180.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>252</x>
+      <y>306</y>
+      <w>180</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+inheritance
+</panel_attributes>
+    <additional_attributes>180.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>666</x>
+      <y>414</y>
+      <w>234</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+composition
+r1=n
+r2=1
+</panel_attributes>
+    <additional_attributes>240.0;20.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>567</x>
+      <y>369</y>
+      <w>126</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+association
+r1=1
+r2=1</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>729</x>
+      <y>558</y>
+      <w>144</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+association
+r1=1
+r2=1</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>729</x>
+      <y>630</y>
+      <w>144</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-&gt;&gt;
+association
+r1=n
+r2=m</panel_attributes>
+    <additional_attributes>140.0;80.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>891</x>
+      <y>423</y>
+      <w>108</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+aggregation</panel_attributes>
+    <additional_attributes>10.0;10.0;40.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>882</x>
+      <y>225</y>
+      <w>90</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+composition
+r1=1
+r2=1</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>594</x>
+      <y>639</y>
+      <w>36</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+r1=1
+r2=1</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>648</x>
+      <y>171</y>
+      <w>162</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+r1=1
+r2=1</panel_attributes>
+    <additional_attributes>10.0;20.0;160.0;20.0</additional_attributes>
+  </element>
+</diagram>
