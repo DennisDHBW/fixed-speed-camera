@@ -63,7 +63,3 @@ Design and implement realistic application scenarios for each of the following:
 
 ### ⚙️ Mandatory Lombok Usage
 - **Lombok must be used** for reducing boilerplate code (getters, setters, builders, etc.).
-
----
-
-✅ **All requirements from the examination assignment have been incorporated into this overview.**
