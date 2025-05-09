@@ -12,7 +12,7 @@ public class Technician extends Person {
     @Builder.Default
     ArrayList<FixedSpeedCamera> cameras = new ArrayList<>();
 
-    public void maintainCamera(FixedSpeedCamera camera) {
+    public void repairCamera(FixedSpeedCamera camera) {
         camera.repair();
     }
 

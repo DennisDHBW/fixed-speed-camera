@@ -6,11 +6,13 @@ import java.util.UUID;
 
 @Builder
 public class FixedSpeedCamera {
-    private ConditionType condition;
     private final UUID uuid = UUID.randomUUID();
     private String location;
     private int speedLimit;
     private ArrayList<Measurement> measurements;
+
+    @Builder.Default
+    private ConditionType condition = ConditionType.INTACT;
 
     public void repair() {
         if (condition != ConditionType.INTACT) {

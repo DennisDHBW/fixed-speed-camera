@@ -18,7 +18,17 @@ import java.time.format.DateTimeFormatter;
 public class Application {
     public static void main(String[] args) {
 
-        OwnerDatabase ownerDatabase = new OwnerDatabase();
+        final String OWNER_DATABASE_CSV_PATH = "src/owner_database.csv";
+
+        OwnerDatabase ownerDatabase = OwnerDatabase.create(OWNER_DATABASE_CSV_PATH);
+        ownerDatabase.update(OWNER_DATABASE_CSV_PATH);
+        ownerDatabase.registration("HN-DE-1996", new String[] {"Test", "2025-05-08", "9999-12-31"});
+        ownerDatabase.deregistration("AB-CD-123");
+        log.info(ownerDatabase.getOwner("HN-DE-1996"));
+        log.info(ownerDatabase.toString());
+        ownerDatabase.registration("HN-DE-1996", new String[] {"Test", "2025-05-08", "2025-05-09"});
+        log.info(ownerDatabase.toString());
+
 
         LocalDate dob1 = LocalDate.parse("1997-08-26", DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         Person person1 = Person.builder()
@@ -33,7 +43,7 @@ public class Application {
                 .type(CarType.COUPE)
                 .build();
         person1.buyVehicle(car1);
-        ownerDatabase.registration(car1.getLicensePlate(), person1.getName());
+        //ownerDatabase.registration(car1.getLicensePlate(), person1.getName());
 
         FixedSpeedCamera camera1 = FixedSpeedCamera.builder()
                 .location("Heilbronn")
@@ -46,7 +56,7 @@ public class Application {
                 .build();
         technician1.addCamera(camera1);
 
-        log.info(ownerDatabase.getOwner(car1.getLicensePlate()));
+        //log.info(ownerDatabase.getOwner(car1.getLicensePlate()));
 
 
     }
