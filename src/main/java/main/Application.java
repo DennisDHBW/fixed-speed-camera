@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import person.Person;
 import person.Technician;
 import vehicle.Car;
+import vehicle.Vehicle;
 import vehicle.enums.CarType;
 import vehicle.enums.VehicleType;
 
@@ -25,7 +26,7 @@ public class Application {
                 .dateOfBirth(dob1)
                 .build();
 
-        Car car1 = Car.builder()
+        Vehicle car1 = Car.builder()
                 .vehicleType(VehicleType.CAR)
                 .maxSpeed(200)
                 .licensePlate("AB-CD-123")

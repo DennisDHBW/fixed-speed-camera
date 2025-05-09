@@ -1,13 +1,10 @@
 package fixedspeedcamera;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
-
 import java.util.ArrayList;
 import java.util.UUID;
 
 @Builder
-@AllArgsConstructor
 public class FixedSpeedCamera {
     private ConditionType condition;
     private final UUID uuid = UUID.randomUUID();
