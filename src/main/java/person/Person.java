@@ -1,6 +1,5 @@
 package person;
 
-import fixedspeedcamera.OwnerDatabase;
 import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
@@ -25,7 +24,12 @@ public class Person {
     public void buyVehicle(Vehicle vehicle) {
         this.vehicles.add(vehicle);
         vehicle.setOwner(this);
-
     }
 
+    public void sellVehicle(Vehicle vehicle) {
+        if (vehicle.getOwner() == this) {
+            vehicle.setOwner(null);
+            this.vehicles.remove(vehicle);
+        }
+    }
 }
